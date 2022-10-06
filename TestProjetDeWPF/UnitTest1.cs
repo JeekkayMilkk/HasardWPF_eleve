@@ -38,7 +38,7 @@ namespace TestProjetDeWPF
 
             for (int i = 0; i < nbIterations; i++)
             {
-                Face rnd = ObjetHasard.Lancer(min, max);
+                Face rnd = ObjetHasard.Lancer();
 
                 // On teste qu'on est dans les limites attendues
                 Assert.IsTrue(rnd >= min && rnd <= max, "rnd hors plage");
