@@ -7,11 +7,6 @@ namespace TestProjetDeWPF
     public class UnitTest1
     {
         [TestMethod]
-        public void TestDe6()
-        {
-        }
-
-        [TestMethod]
         public void TestFace()
         {
             int v = 2;
@@ -19,11 +14,6 @@ namespace TestProjetDeWPF
 
             Assert.AreEqual(v, 2);
             Assert.AreEqual(nom, "Mary");
-        }
-
-        [TestMethod]
-        public void TestLancer()
-        {
         }
 
         [TestMethod]
@@ -37,13 +27,38 @@ namespace TestProjetDeWPF
         }
 
         [TestMethod]
-        public void TestCreerFaces()
+        public void TestLancer()
         {
-        }
+            int nbMin = 0;
+            int nbMax = 0;
+            int min = 1;
+            int max = 6;
+            double tolerance = 1e-3;
+            int nbIterations = 100000;
 
-        [TestMethod]
-        public void TestPiece()
-        {
+            for (int i = 0; i < nbIterations; i++)
+            {
+                Face rnd = ObjetHasard.Lancer(min, max);
+
+                // On teste qu'on est dans les limites attendues
+                Assert.IsTrue(rnd >= min && rnd <= max, "rnd hors plage");
+
+                // On teste si vaut min
+                if (rnd - min <= tolerance)
+                {
+                    nbMin++;
+                }
+
+                // On teste si vaut max
+                if (max - rnd <= tolerance)
+                {
+                    nbMax++;
+                }
+            }
+
+            // On vérifie si on a obtenu les deux limites
+            Assert.IsTrue(nbMin > 0, "nbMin = 0");
+            Assert.IsTrue(nbMax > 0, "nbMax = 0");
         }
     }
 }
