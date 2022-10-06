@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace DeWPF
 {
@@ -22,10 +23,12 @@ namespace DeWPF
 
         protected virtual void CreerFaces()
         {
+            int i = 0;
             for (int valeur = 1; valeur <= NbFaces; valeur++)
             {
                 Faces[valeur-1] = new Face(valeur, valeur.ToString());
             }
+            Debug.Assert(i < NbFaces, "i ne prend pas la valeur de NbFaces");
         }
 
         public Face Lancer()
