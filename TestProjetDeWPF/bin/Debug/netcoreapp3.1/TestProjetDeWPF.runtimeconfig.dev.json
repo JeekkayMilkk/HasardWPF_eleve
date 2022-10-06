@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\verro\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\verro\\.nuget\\packages"
+    ]
+  }
+}
